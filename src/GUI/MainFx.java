@@ -22,7 +22,7 @@ public class MainFx extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			root = new RootGridPane();
-			scene = new Scene(root,600,550);		//Wichtig insodern, dass wenn ich auch die Leiste des Bildschirmes doppelklicke, dass dann diese Größe gewählt wird, wenn sie verkleinert wird
+			scene = new Scene(root,600,550);
 			
 			//primaryStage.setMaximized(true);
 			primaryStage.setScene(scene);
@@ -45,8 +45,8 @@ public class MainFx extends Application {
 		if(message!=null) {
 			Alert alert = new Alert(AlertType.ERROR, message, ButtonType.OK);
 			alert.setTitle("Achtung Fehler");
-			alert.setHeaderText(null);	//
-			alert.showAndWait(); //Wenn ich den Fenster dahinter blockieren will. Modale Benutzerführung (wäre nach primaryStag.show())
+			alert.setHeaderText(null);
+			alert.showAndWait(); //View dahinter blockieren. Modale Benutzerführung (wäre nach primaryStag.show())
 		}
 	}
 }
