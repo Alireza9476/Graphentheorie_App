@@ -38,7 +38,7 @@ public class WegMatrix {
 	////////////////////////////////getter//////////////////////////////////////
 	
 	public int[][] getWegMatrix() {
-		return wegMatrix.clone();		//Damit keine Referenz erzeugt wird.
+		return wegMatrix.clone();		
 	}
 	
 	public String getWegMatrixContent(int [][] m) {
@@ -75,7 +75,7 @@ public class WegMatrix {
 					}
 				}
 		}
-		if(!setDiagonale1) {		//temp soll nicht beim Initialisieren der Diagonale eingreifen
+		if(!setDiagonale1) {		//temp soll nicht beim Initialisierung der Diagonale eingreifen
 			wegMatrix = temp;
 			k++;
 		}
@@ -103,10 +103,10 @@ public class WegMatrix {
             //    System.out.println("l : " + l + "wegMatrixRow " + reihe[l]);
             //}
 			for(int j = 0; j < n; j++) {
-				if(reihe[j] == 1)							//Wenn eine Zahl gefunden wurde, dann weiß ich, dass sich hierbei um eine Verbindung handelt
-					reihe[j] = j + 1;						//Hier nur +1, weil Knoten von 1 beginnen und nicht bei 0
+				if(reihe[j] == 1)							//Wenn eine Zahl gefunden wurde, dann ist bekannt, dass es sich hierbei um eine Verbindung handelt
+					reihe[j] = j + 1;						//+1, weil Startknoten 1
 			}
-			//bevor die 2.Schleife endet, muss überprüft werden, ob die Reihe bereits in der erstellten Komponente existiert, wenn nicht adde ich sie zu meiner Komponente hinzu 
+			//bevor die 2.Schleife endet, muss überprüft werden, ob die Reihe bereits in der erstellten Komponente existiert, wenn nicht, adde ich sie zu meiner Komponente hinzu 
 			if(!containsInList(komponenten,reihe)) {
 				komponenten.add(reihe);
 				//komponentenZaehler++;		//Wichtig für Artikkulationen und Brücken
@@ -237,8 +237,10 @@ public class WegMatrix {
 	
     //Artikulationen erkennt man durch ihre Fähigeit, die Komponentenanzahl zu ändern, wenn ich ein Knoten lösche, und sie dadurch
     //zwei Komponenten erzeugt, wo davor nur eine war, ist das eine Artikulation
-    //Wenn ich das auführe, ändert sich meine Adjzazentmatrix
+    //Wenn ich das ausführe, ändert sich meine Adjzazentmatrix
 	
+    //Ob diese Methode verbessert werde kann, ist eine Frage für sich.
+    //Solange die Methode einwandfrei funktioniert und diese einigermaßen zu verstehen ist, gibt es kein Verbesserungsbedarf.
     public void wegMatrix(boolean artikulation) {
 		Matrix adjazenz;
     	if(artikulation)
