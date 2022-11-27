@@ -52,9 +52,9 @@ public class Artikulation
 	//u = der Knoten was besucht wird
 	void dfs(int u, boolean visited[], int disc[], int low[], int parent[], boolean ap[]){
 		int children = 0;
-		visited[u] = true;				//Aktuell besuchte Knoten wird auf true gesetzt
+		visited[u] = true;				//Derzeit besuchte Knoten wird auf true gesetzt
 		low[u] = ++time;
-		disc[u] = low[u];		//disc -> Entdeckungszeiten speichern, der Wert der Zeit wird direkt addiert und dann weitergegeben		
+		disc[u] = low[u];		//disc -> Entdeckungszeiten speichern, der Wert der Zeit wird direkt addiert und weitergegeben		
 
 		Iterator<Integer> i = adj[u].iterator();	//iterieren 
 		while (i.hasNext())							
@@ -63,9 +63,9 @@ public class Artikulation
 			if (!visited[v])					
 			{
 				children++;
-				parent[v] = u;								//ParentKnoten bekommt den Wert von u also der Knoten bei dem wir sind.
+				parent[v] = u;								//ParentKnoten bekommt den Wert von u (derzeitige Knoten)
 				dfs(v, visited, disc, low, parent, ap);		
-				low[u] = Math.min(low[u], low[v]);		 //das kleiner von den wird in low gepeichert
+				low[u] = Math.min(low[u], low[v]);
 
 				if (parent[u] == NIL && children > 1) {
 					System.out.println("-------------------");
